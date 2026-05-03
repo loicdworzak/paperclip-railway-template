@@ -29,6 +29,7 @@ ENV HOME=/paperclip \
     PAPERCLIP_INSTANCE_ID=default \
     PAPERCLIP_CONFIG=/paperclip/instances/default/config.json \
     OPENCODE_ALLOW_ALL_MODELS=true
+    GEMINI_CLI_NO_DETACH=true
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
