@@ -28,8 +28,10 @@ ENV CLAUDE_CODE_BUBBLEWRAP=1
 ENV HOME=/paperclip \
     PAPERCLIP_INSTANCE_ID=default \
     PAPERCLIP_CONFIG=/paperclip/instances/default/config.json \
-    OPENCODE_ALLOW_ALL_MODELS=true
-    GEMINI_CLI_NO_DETACH=true
+    OPENCODE_ALLOW_ALL_MODELS=true \
+    GEMINI_CLI_NO_DETACH=true \
+    GEMINI_SANDBOX=false \
+    GEMINI_CLI_TRUST_WORKSPACE=true
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
