@@ -1,5 +1,5 @@
-# Build upstream Paperclip from a pinned ref.
-FROM node:22-bookworm AS paperclip-build
+# Build upstream Paperclip  a pinned ref.
+ node:22-bookworm AS paperclip-build
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     ca-certificates \
@@ -42,7 +42,7 @@ RUN apt-get update \
 RUN corepack enable
 
 WORKDIR /app
-COPY --from=paperclip-build /paperclip /app
+COPY --=paperclip-build /paperclip /app
 
 WORKDIR /wrapper
 COPY package.json /wrapper/package.json
@@ -53,7 +53,7 @@ COPY scripts/bootstrap-ceo.mjs /wrapper/template/bootstrap-ceo.mjs
 RUN chmod +x /wrapper/entrypoint.sh
 
 # Optional local adapters/tools parity with upstream Dockerfile.
-RUN npm install --global --omit=dev @anthropic-ai/claude-code@latest @openai/codex@latest opencode-ai
+RUN npm install --global --omit=dev @anthropic-ai/claude-code@latest @openai/codex@latest opencode-ai @google/gemini-cli
 RUN npm install --global --omit=dev tsx
 RUN mkdir -p /paperclip \
     && chown -R node:node /app /paperclip /wrapper
