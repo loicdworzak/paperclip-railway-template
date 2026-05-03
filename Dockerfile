@@ -42,7 +42,7 @@ RUN apt-get update \
 RUN corepack enable
 
 WORKDIR /app
-COPY --=paperclip-build /paperclip /app
+COPY --from=paperclip-build /paperclip /app
 
 WORKDIR /wrapper
 COPY package.json /wrapper/package.json
